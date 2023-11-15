@@ -1,0 +1,136 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ],
+  "settings": {
+    "tailwindcss": {
+      // These are the default values but feel free to customize
+      "callees": ["cx"],
+      "config": "tailwind.config.js",
+      // returned from `loadConfig()` utility if not provided
+      "cssFiles": ["**/*.css", "!**/node_modules", "!**/.*", "!**/dist", "!**/build"],
+      "cssFilesRefreshRate": 5000,
+      "removeDuplicates": true,
+      "skipClassAttribute": false,
+      "whitelist": ["core\\-.*"],
+      "tags": [],
+      "classRegex": "^class(Name)?$" // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
+    }
+  },
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort", "import", "tailwindcss"],
+  "rules": {
+    "arrow-body-style": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "no-console": 1,
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-restricted-exports": "off",
+    "react/button-has-type": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-uses-react": "off",
+    "react/no-access-state-in-setstate": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/state-in-constructor": "off",
+    "linebreak-style": ["error", "unix"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next/**",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/ui/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "../components/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "../hooks/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "../store/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "../utils/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        // "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "tailwindcss/classnames-order": "error",
+    "tailwindcss/no-contradicting-classname": "error"
+  }
+}

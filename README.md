@@ -67,6 +67,8 @@ The package manager used is `yarn@4.0.2`.
 ├── .next                   // Next.js compilation output folder, containing generated static files and server-side code.
 ├── .vscode                 // Visual Studio Code workspace settings, such as editor preferences and extensions.
 ├── .yarn                   // Yarn package manager configuration and cache data.
+├── cypress                 // Folder for Cypress end-to-end test files and configurations.
+├── node_modules            // Node.js module folder, storing all dependencies.
 ├── public                  // Static resource folder, used for storing static files like images and fonts that don't require compilation.
 ├── src                     // Source code folder, containing the main code of the application.
 │   ├── app                 // Folder for Next route pages.
@@ -87,7 +89,8 @@ The package manager used is `yarn@4.0.2`.
 ├── .yarnrc.yml             // Yarn's new configuration file in YAML format, setting Yarn's behavior and options.
 ├── Dockerfile              // Docker configuration file for building the project's Docker container.
 ├── README.md               // Project's readme file, usually containing project information, build steps, and usage instructions.
-├── components.json         // Custom JSON file, possibly containing component configuration or metadata.
+├── components.json         // Shadcn ui config file
+├── cypress.config.js       // For setting up Cypress testing options.
 ├── next-env.d.ts           // Next.js TypeScript type definition file, supporting TypeScript.
 ├── next.config.js          // Next.js configuration file, customizing build and runtime behavior.
 ├── package.json            // NPM configuration file defining project metadata, dependencies, and scripts.

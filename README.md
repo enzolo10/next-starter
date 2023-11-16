@@ -65,6 +65,7 @@ The package manager used is `yarn@4.0.2`.
 ├── .git                    // Git version control system folder, storing the project's version history and changes.
 ├── .husky                  // Husky configuration folder, used for managing Git hooks
 ├── .next                   // Next.js compilation output folder, containing generated static files and server-side code.
+├── .storybook              // Holds Storybook configuration and setup files.
 ├── .vscode                 // Visual Studio Code workspace settings, such as editor preferences and extensions.
 ├── .yarn                   // Yarn package manager configuration and cache data.
 ├── cypress                 // Folder for Cypress end-to-end test files and configurations.
@@ -80,6 +81,7 @@ The package manager used is `yarn@4.0.2`.
 │   │   └── validators      // Functions related to form validation or other data validations.
 │   ├── stores              // State management-related code, like stores using Zustand or ReactQuery.
 │   │   └── react-query     // Configuration and state management for react-query.
+│   └── stories             // Contains Storybook stories for UI components.
 │   └── types               // TypeScript type definitions and interfaces.
 ├── .commitlintrc.json      // CommitLint configuration file, used for checking the format of Git commit messages
 ├── .eslintrc.json          // ESLint configuration file, defining code quality and formatting rules.

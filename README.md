@@ -4,7 +4,7 @@ Next.js starter
 
 Before running this project, you must have the following installed:
 
-- Node.js (**v18.18.0** or later)
+- Node.js (**v18.12.0** or later)
 - Yarn
 
 ## Installation

@@ -1,5 +1,5 @@
 import { Badge } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { AccordionDemo } from '@/components/ui/Accordion/Demo';
 import { AlertDemo } from '@/components/ui/Alert/Demo';
 import { AlertDialogDemo } from '@/components/ui/AlertDialog/Demo';
@@ -15,8 +15,11 @@ import { DialogDemo } from '@/components/ui/Dialog/Demo';
 import { DropdownMenuDemo } from '@/components/ui/DropdownMenu/Demo';
 import LangToggle from '@/components/LangToggle';
 import ThemeToggle from '@/components/ThemeToggle';
+import { Link } from '@/navigation';
 const Home = () => {
   const t = useTranslations('Index');
+
+  useLocale();
 
   return (
     <div className="scrollbar flex flex-col items-center gap-4 p-4">
@@ -26,6 +29,7 @@ const Home = () => {
       <div>
         <p>{t('title')}</p>
         <p>{t('subtitle')}</p>
+        <Link href="/login">Login</Link>
       </div>
       <ThemeToggle />
       <Button>Click me</Button>

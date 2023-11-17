@@ -1,16 +1,14 @@
-import { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+// import { Inter as FontSans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import Providers from '@/components/Providers';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
-import { PageProps } from '@/types/common';
 
-export const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
+// export const fontSans = FontSans({
+//   subsets: ['latin'],
+//   variable: '--font-sans',
+// });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,28 +17,27 @@ export const metadata: Metadata = {
 
 const locales = ['en', 'zh-hant'];
 
-type ParamsProps = {
-  locale: string;
+// type ParamsProps = {
+//   locale: string;
+// };
+
+type Props = {
+  params: {
+    locale: string;
+  };
+  children: React.ReactNode;
 };
 
-const RootLayout = ({ params, children }: PropsWithChildren<PageProps<ParamsProps>>) => {
+const RootLayout = ({ params, children }: Props) => {
   if (!locales.includes(params.locale)) notFound();
 
   return (
     <html lang={params.locale}>
-      <body className={cn('min-h-screen bg-background font-sans antialiased scrollbar', fontSans.variable)}>
+      <body className={cn('min-h-screen bg-background font-sans antialiased scrollbar')}>
         <Providers>{children}</Providers>
       </body>
     </html>
   );
-};
-
-export const dynamicParams = false;
-
-export const generateStaticParams = async () => {
-  const initialParams: ParamsProps[] = [{ locale: 'en' }, { locale: 'zh-hant' }];
-
-  return initialParams;
 };
 
 export default RootLayout;

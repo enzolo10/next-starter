@@ -1,13 +1,24 @@
 'use client';
 
-import * as React from 'react';
+import { useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Languages } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
 
 const LangToggle = () => {
+  const pathname = usePathname();
+
+  const createLocaleUrl = useCallback(
+    (locale: string) => {
+      const path = pathname;
+      return path.replace(/\/[a-z-]+(\/.*)?$/, `/${locale}$1`);
+    },
+    [pathname]
+  );
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -18,14 +29,10 @@ const LangToggle = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem asChild>
-          <Link href="/" locale="en">
-            English
-          </Link>
+          <Link href={createLocaleUrl('en')}>English</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/zh-hant" locale="zh-hant">
-            中文
-          </Link>
+          <Link href={createLocaleUrl('zh-hant')}>中文</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
